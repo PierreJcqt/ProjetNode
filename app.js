@@ -66,7 +66,7 @@ app.get('/register', (req, res) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.DB_ADMIN_USERNAME}:${process.env.DB_ADMIN_PASSWORD}@${process.env.DB_ADMIN_CLUSTER}.htixmmt.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.DB_ADMIN_USERNAME}:${process.env.DB_ADMIN_PASSWORD}@equipage.htixmmt.mongodb.net/?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
