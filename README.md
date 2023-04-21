@@ -19,5 +19,5 @@ Projet Node
     DB_ADMIN_PASSWORD='votre mot de passe MongoDB pour accéder à votre cluster'
     SESSION_SECRET=VotreSecretDeSession
     
-1. Lancer le serveur depuis le répertoire racine "ProjetNode" en utilisant "nodemon serve".
+1. Lancer le serveur depuis le répertoire racine "ProjetNode" en utilisant "nodemon serve" ou "nodemon server.js".
 2. Ouvrez votre navigateur à l'URL : http://localhost:3000/login pour accéder à l'appli et plus précisément la page de login.
