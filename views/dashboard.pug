@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Dashboard
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body
+    .container
+      .row
+        .col-md-12
+          h1.text-center.mt-5.mb-4 Bienvenue sur votre Dashboard #{user.firstName}
+
+          if flash_success
+            div(class="alert alert-success")
+              each message in flash_success
+                p= message
+
+          h3.mb-3 Informations sur l'utilisateur
+          ul.list-group
+            li.list-group-item Prénom: #{user.firstName}
+            li.list-group-item Nom: #{user.lastName}
+            li.list-group-item Email: #{user.email}
+
+          a.btn.btn-primary.mt-4(href="/login") Retour à l'identification

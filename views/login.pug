@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Login
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    header
+      nav
+        ul
+          li
+            a(href="/login") Home
+          li
+            a(href="/register") Signup
+    .container
+      h1 Se connecter
+
+      if flash_success
+        div(class="alert alert-success")
+          each message in flash_success
+            p= message
+
+      if flash_error
+        div(class="alert alert-danger")
+          each message in flash_error
+            p= message
+
+      form(action="/login", method="POST")
+        div
+          label(for="email") Email
+          input(type="email", id="email", placeholder="Email", name="email")
+        div
+          label(for="password") Password
+          input(type="password", id="password", placeholder="Password", name="password")
+        button(type="submit") Login
+        .error

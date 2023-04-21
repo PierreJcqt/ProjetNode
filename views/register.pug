@@ -1,0 +1,58 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Register
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    header
+      nav
+        ul
+          li
+            a(href="/login") Home
+          li
+            a(href="/register") Signup
+    .container
+      h1 S'inscrire
+
+      if flash_success
+        div(class="alert alert-success")
+          each message in flash_success
+            p= message
+
+      if flash_error
+        div(class="alert alert-danger")
+          each message in flash_error
+            p= message
+
+      form(action="/register", method="POST", onsubmit="return checkPasswords()")
+        div
+          label(for="firstName") First Name
+          input(type="text", id="firstName", name="firstName", required)
+        div
+          label(for="lastName") Last Name
+          input(type="text", id="lastName", name="lastName", required)
+        div
+          label(for="email") Email
+          input(type="email", id="email", name="email", required)
+        div
+          label(for="password") Password
+          input(type="password", id="password", name="password", required)
+        div
+          label(for="confirmPassword") Confirm Password
+          input(type="password", id="confirmPassword", name="confirmPassword", required)
+        button(type="submit", onclick="return checkPasswords()") Login
+        .error
+    script.
+      function checkPasswords() {
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("confirmPassword");
+
+        if (password.value != confirmPassword.value) {
+          alert("Vous n'avez pas confirmé votre mot de passe ou alors ils ne correspondent pas !");
+          confirmPassword.focus();
+          return false;
+        }
+        return true;
+      }
